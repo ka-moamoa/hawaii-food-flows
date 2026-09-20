@@ -1,0 +1,7 @@
+measure,year,value,unit,source,note
+market_value_sold,2017,563803000,USD,"USDA NASS, 2017 Census of Agriculture, Hawaii state profile (cp99015)","Down 15% from 2012"
+market_value_sold,2022,673776000,USD,"USDA NASS, 2022 Census of Agriculture, Hawaii state profile (cp99015)","Up 20% from 2017, not inflation adjusted; the same figure appears on the Aloha+ dashboard as production and as consumption"
+farms,2017,7328,farms,"USDA NASS, 2017 Census of Agriculture, Hawaii state profile",""
+farms,2022,6569,farms,"USDA NASS, 2022 Census of Agriculture, Hawaii state profile","Down 10% from 2017"
+land_in_farms,2017,1135352,acres,"USDA NASS, 2017 Census of Agriculture, Hawaii state profile",""
+land_in_farms,2022,1053302,acres,"USDA NASS, 2022 Census of Agriculture, Hawaii state profile","Down 7% from 2017"
