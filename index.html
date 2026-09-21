@@ -545,7 +545,7 @@ const KIND = {atl:'Hawaii food or ag org', parent:'Outside supplier / funder', p
 const css = k => getComputedStyle(document.documentElement).getPropertyValue(k).trim();
 
 // ---------- state ----------
-const state = { year:'latest', flow:'all', min:Math.pow(10,3.7), selected:null, hover:null, q:'', layout:'network', detail:12, mapbase:'lila', mapshow:'orgs', maphubs:false, mapflows:false, mapkumu:false, mapmoku:false, mapdhhl:false, mapdist:null, hl:null };
+const state = { tab:'map', year:'latest', flow:'all', min:Math.pow(10,3.7), selected:null, hover:null, q:'', layout:'map', detail:12, mapbase:'lila', mapshow:'orgs', maphubs:false, mapflows:false, mapkumu:false, mapmoku:true, mapdhhl:false, mapdist:null, hl:null };
 try { const h = window.claude && window.claude.hot && window.claude.hot.data; if (h && h.state) Object.assign(state, h.state); } catch(e){}
 if (window.claude && window.claude.hot && window.claude.hot.snapshot) window.claude.hot.snapshot(() => ({state}));
 
@@ -1286,7 +1286,7 @@ const canPath = /^https?:$/.test(location.protocol) && !/\.html?$/i.test(locatio
 const lastSeg = () => location.pathname.replace(/\/+$/, '').split('/').pop().toLowerCase();
 const siteBase = (() => { const p = location.pathname.replace(/\/+$/, ''); const seg = p.split('/').pop().toLowerCase(); return (seg && seg in ROUTES ? p.slice(0, p.length - seg.length) : p + '/').replace(/\/+$/, '/'); })();
 function routeFromLocation(){ const cands = [new URLSearchParams(location.search).get('tab'), location.hash.replace('#', ''), lastSeg()]; for (const c of cands){ const k = (c || '').toLowerCase(); if (k && k in ROUTES) return k; } return null; }
-function segFor(tab, layout){ return tab === 'map' ? (layout === 'network' ? 'network' : layout) : SEG[tab]; }
+function segFor(tab, layout){ return tab === 'map' ? (layout === 'map' ? '' : layout) : SEG[tab]; }
 let routing = false;
 function updateUrl(push){ if (routing) return; const seg = segFor(state.tab, state.layout); const url = canPath ? siteBase + seg : (location.pathname + location.search.replace(/[?&]tab=[^&]*/, '') + '#' + seg); try { (push ? history.pushState : history.replaceState).call(history, null, '', url); } catch(e){} }
 function applyRoute(seg, push){ const r = ROUTES[seg]; if (!r) return; routing = true; showTab(r[0]); if (r[0] === 'map' && r[1]) setLayout(r[1]); routing = false; updateUrl(push); }
