@@ -1848,7 +1848,7 @@ function renderSecurity(){
   V.querySelectorAll('[data-id]').forEach(el => { el.style.cursor = 'pointer'; el.addEventListener('click', () => { const id = el.dataset.id; if (!nodesById.has(id)) return; showTab('map'); if (!G.nodes.some(n=>n.id===id)){ state.min = 0; minEl.value = 0; showMin(); buildGraph(); } select(id); const gn = G.nodes.find(n=>n.id===id); if (gn){ const k = Math.max(transform.k, 1.2); transform = d3.zoomIdentity.translate(W/2 - k*gn.x, H/2 - k*gn.y).scale(k); d3.select(canvas).call(zoom.transform, transform); } }); });
 }
 if (state.tab === 'sec') showTab('sec');
-setLayout(state.layout);
+routing = true; setLayout(state.layout); routing = false;  // the initial layout must not rewrite the URL before the route is read
 
 $('source').innerHTML = `Sources: IRS Form 990 e-file returns (${DATA.meta.bundles} releases, tax years ${DATA.meta.years[0]}&ndash;${DATA.meta.years[DATA.meta.years.length-1]}), IRS Business Master File, ProPublica Nonprofit Explorer, USAspending.gov, USDA TEFAP allocations, Single Audits, US Census Bureau, USDA ERS. Values are as reported by the giver. Grants under $5,000 per recipient are not itemized and are absent. Built ${DATA.meta.generated}. <a href="#" data-goto="about" class="help">About the data</a>`;
 buildGraph();
