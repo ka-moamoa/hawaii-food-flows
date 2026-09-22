@@ -14,12 +14,13 @@ What it does that nothing else does today:
 - **The first compiled table** of every local-purchasing report the agencies file under Acts 175 and 176, with an owner, a status and the basis each agency measured on, set beside the three statutory goals.
 - **School food dollars traced to the seven distributors** that supply them, the first farm-side flows in the record.
 - **One fact sheet per county and per state Senate and House district**: household need from the food banks' survey and ALICE, farmland in use by crop, farm sales into local channels, and the organizations located there.
+- **Need beside supply**: Feeding America's Map the Meal Gap county estimates for 2024 (food insecurity rate, children, meal gap, share above the SNAP income line) set against the charitable food the record places in each county, as an upper bound on coverage; the same estimates shade the map by county and can tint the network.
 - **Moku, Hawaiian home lands, legislative districts and 886,000 acres of 2020 farmland** as map layers, and every source table downloadable with EIN as the shared identifier.
 
 What it does not do:
 
 - **It does not see farms, hubs or retailers directly.** Form 990 covers nonprofits. Companies and cooperatives appear only where a public record names them, such as the school system's contracted distributors.
-- **It does not measure household food security.** The county figures quote the food banks' survey and Aloha United Way's ALICE report as published; the site adds no estimate of its own and never computes food per resident.
+- **It does not measure household food security.** The county figures quote the food banks' survey, Aloha United Way's ALICE report and Feeding America's Map the Meal Gap county model as published, each with its label; the site adds no estimate of its own and never computes food per resident.
 - **It does not show where food is eaten.** A point is a mailing address; a Honolulu warehouse serves other islands. Flows are drawn as straight lines between addresses, not shipping routes.
 - **It does not see grants under $5,000, donors, or anything filed on a 990-EZ or 990-N**, so agencies that appear to have one source may have several small ones, and neighbor-island food banks that itemize few grantees look thinner than they are.
 - **It does not rebase the agencies' local-purchasing shares to a common definition.** A 15 percent on produce at one hospital and a 6 percent on all school food are shown side by side with their bases, not made comparable.
@@ -42,4 +43,4 @@ Developed in working sessions with Claude (Anthropic).
 
 ## Data
 
-The `data/` folder holds the source tables the page is built from: `data.json` (organizations, flows, federal layers, geography), the organization set, the TEFAP table, the compiled local-purchasing filings, production context, county reference figures, the priority areas and the steward inventory. The organization identifier is the EIN wherever one exists.
+The `data/` folder holds the source tables the page is built from: `data.json` (organizations, flows, federal layers, geography), the organization set, the TEFAP table, the compiled local-purchasing filings, production context, county reference figures, the priority areas, the steward inventory, and `mmg.json`, the harmonized Feeding America Map the Meal Gap series (county and state, 2009 to 2024, with the comparability rules from the 2026 technical brief). The organization identifier is the EIN wherever one exists.
